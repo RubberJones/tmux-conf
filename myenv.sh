@@ -40,7 +40,7 @@ tmux send-keys "vim main.adoc" C-m
 # Pane 3
 tmux selectp -t 3
 tmux send-keys "cd ~/Dokumente/asciidoc/bus-rtg/" C-m
-tmux send-keys "vim ~/Dokumente/asciidoc/bus-rtg/konfiguration-datenstruktur.adoc" C-m
+tmux send-keys "vim ~/Dokumente/asciidoc/bus-rtg/protocol-structure.adoc" C-m
 
 # Pane 1, wird als letztes ausgeführt, da der Docker Container einige Zeit zum
 # starten benötigt. Ansonsten können Einträge die in den Panes durcheinander
