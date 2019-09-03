@@ -13,5 +13,9 @@ fi
 
 echo "copy file $TMUX_CONF to your home directory."
 cp $TMUX_CONF $TMUX_LOC
+
+echo "copy myenv.sh startup script to ~/bin."
+cp ./myenv.sh ~/bin/
+
 exit 0
 
