@@ -59,10 +59,10 @@ tmux selectp -t 0
 tmux send-keys ":NERDTree" C-m
 
 ##############################################################################
-# new window doc-todo
+# new window doc-projects
 ##############################################################################
-DOC_DIR=~/Dokumente/asciidoc/doc-todo/
-tmux new-window -t $SESSION -n DOC-TODO
+DOC_DIR=~/Dokumente/asciidoc/doc-projects/
+tmux new-window -t $SESSION -n DOC-PROJ
 tmux send-keys "cd $DOC_DIR" C-m
 tmux send-keys "git status" C-m
 tmux splitw -v -p 15
