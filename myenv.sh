@@ -1,5 +1,14 @@
 #!/bin/bash
 
+echo "
+
+this repositories are required for this environment
+
+    git clone git@github.com:RubberJones/tmux-conf.git ~/sourcen/
+    git clone git@github.com:RubberJones/vimrc.git ~/sourcen/
+    git clone git@github.com:RubberJones/mydockerfiles.git ~/sourcen/
+"
+
 SESSION="my-env"
 
 # set up tmux
@@ -84,6 +93,31 @@ PHY_DIR=~/sourcen/mydockerfiles/phy-env/
 tmux new-window -t $SESSION -n PHY
 tmux send-keys "cd $PHY_DIR" C-m
 tmux send-keys "./03_compile.sh"
+
+##############################################################################
+# new window my environment stuff tmux, vim, ...
+##############################################################################
+ENV_DIR=~/sourcen/tmux-config
+tmux new-window -t $SESSION -n MYENV
+tmux send-keys "cd $ENV_DIR" C-m
+
+# split window in three panes
+tmux splitw -v -p 33
+tmux selectp -t 0
+tmux splitw -v -p 50
+
+# pane 1 tmux-config
+tmux selectp -t 0
+tmux send-keys "cd ~/sourcen/tmux-config" C-m
+
+# pane 2 vimrc
+tmux selectp -t 1
+tmux send-keys "cd ~/sourcen/vimrc" C-m
+
+# pane 3
+tmux selectp -t 2
+tmux send-keys "cd ~/sourcen/mydockerfiles" C-m
+
 
 ### select window as default
 tmux selectw -t 3
