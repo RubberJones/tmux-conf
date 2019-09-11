@@ -62,6 +62,7 @@ tmux send-keys ":NERDTree" C-m
 # new window doc-projects
 ##############################################################################
 DOC_DIR=~/sourcen/asciidoc/doc-projects/
+SRC_DIR=~/sourcen
 tmux new-window -t $SESSION -n DOC-PROJ
 tmux send-keys "cd $DOC_DIR" C-m
 tmux send-keys "git status" C-m
@@ -72,7 +73,7 @@ tmux send-keys "vim main.adoc" C-m
 tmux selectp -t 1
 tmux send-keys "cd $DOC_DIR" C-m
 #tmux send-keys "docker run --rm -it --user=$(id -u):$(id -g) --net=host -v $(pwd):/documents/ asciidoctor/docker-asciidoctor" C-m
-tmux send-keys "docker run --rm -it --net=host -v $DOC_DIR:/documents/ asciidoctor/docker-asciidoctor" C-m
+tmux send-keys "docker run --rm -it --net=host -v $SRC_DIR:/sourcen -v $DOC_DIR:/documents/ asciidoctor/docker-asciidoctor" C-m
 tmux send-keys "./gen.sh"
 #tmux send-keys "asciidoctor -a stylesheet=colony.css -a stylesdir=../stylesheets -r asciidoctor-diagram main.adoc"
 tmux selectp -t 0
