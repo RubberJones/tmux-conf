@@ -20,7 +20,7 @@ tmux new-session -d -s $SESSION -n DOC-RTG
 ##### Pane 0
 # wechsel ins Verzeichnis zur RTG Protokoll Dokumentation und für git status
 # aus.
-tmux send-keys "cd ~/Dokumente/asciidoc/bus-rtg/" C-m
+tmux send-keys "cd ~/sourcen/asciidoc/bus-rtg/" C-m
 tmux send-keys "git status" C-m
 
 ###### Aufteilung der Panes
@@ -42,12 +42,12 @@ tmux splitw -v -p 15
 tmux selectp -t 0
 
 # Pane 0
-tmux send-keys "cd ~/Dokumente/asciidoc/bus-rtg/" C-m
+tmux send-keys "cd ~/sourcen/asciidoc/bus-rtg/" C-m
 tmux send-keys "vim main.adoc" C-m
 # Pane 1, wird als letztes ausgeführt, da der Docker Container einige Zeit zum
 # starten benötigt. Ansonsten können Einträge die in den Panes durcheinander
 # kommen.
-DOC_DIR=~/Dokumente/asciidoc/bus-rtg/
+DOC_DIR=~/sourcen/asciidoc/bus-rtg/
 tmux selectp -t 1
 tmux send-keys "cd $DOC_DIR" C-m
 #tmux send-keys "docker run --rm -it --user=$(id -u):$(id -g) --net=host -v $(pwd):/documents/ asciidoctor/docker-asciidoctor" C-m
@@ -61,7 +61,7 @@ tmux send-keys ":NERDTree" C-m
 ##############################################################################
 # new window doc-projects
 ##############################################################################
-DOC_DIR=~/Dokumente/asciidoc/doc-projects/
+DOC_DIR=~/sourcen/asciidoc/doc-projects/
 tmux new-window -t $SESSION -n DOC-PROJ
 tmux send-keys "cd $DOC_DIR" C-m
 tmux send-keys "git status" C-m
