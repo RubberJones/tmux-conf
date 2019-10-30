@@ -1,5 +1,9 @@
 #!/bin/bash
 
+google-chrome "/home/mux/sourcen/asciidoc/bus-rtg/main.html" "/home/mux/sourcen/asciidoc/doc-projects/build-asciidoctor/main.html" &
+
+sleep 5
+
 echo "
 
 this repositories are required for this environment
